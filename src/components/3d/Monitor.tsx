@@ -28,7 +28,7 @@ export default function Monitor() {
             color: "var(--primary-light)",
           }}
         >
-          FULL-STACK DEVELOPER
+          BACKEND DEVELOPER
         </div>
 
         {/* Name */}
@@ -60,7 +60,7 @@ export default function Monitor() {
               textShadow: "0 0 12px var(--glow)",
             }}
           >
-            secure, scalable software
+            software with secure coding
           </span>
         </p>
 

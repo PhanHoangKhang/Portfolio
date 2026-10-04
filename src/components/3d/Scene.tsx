@@ -26,12 +26,12 @@ export default function Scene() {
 
       <Stars
         radius={100}
-        depth={60}
-        count={2200}
-        factor={2.4}
+        depth={80}
+        count={6000}
+        factor={2.5}
         saturation={0}
         fade
-        speed={0.15}
+        speed={0.1}
       />
 
       <ambientLight intensity={1.2} />

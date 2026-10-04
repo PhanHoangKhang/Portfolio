@@ -22,7 +22,7 @@ export default function Navbar() {
           <a
             key={item}
             href={`#${item.toLowerCase()}`}
-            className="rounded-full px-5 py-3 text-[10px] font-medium tracking-[0.14em] transition-all duration-300"
+            className="rounded-full px-5 py-3 text-sm font-medium tracking-[0.14em] transition-all duration-300"
             style={{
               color:
                 index === 0
