@@ -4,6 +4,7 @@ import Hero from "./sections/Hero";
 import TechMarquee from "./components/ui/TechMarquee";
 import Education from "./sections/Education";
 import Experience from "./sections/Experience";
+import Projects from "./sections/Project";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <TechMarquee />
       <Education />
       <Experience />
+      <Projects />
     </main>
   );
 }
