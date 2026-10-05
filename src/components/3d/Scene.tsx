@@ -20,8 +20,12 @@ export default function Scene() {
     >
       <color attach="background" args={[background]} />
 
-      {/* Background waveform */}
+      {/* Background waveforms */}
       <Waveform />
+
+      <group position={[0, -2.8, 0]}>
+        <Waveform />
+      </group>
 
       <ambientLight intensity={1.2} />
 
@@ -52,8 +56,6 @@ export default function Scene() {
         intensity={1}
         distance={18}
       />
-
-     
     </Canvas>
   );
 }
