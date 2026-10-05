@@ -1,49 +1,55 @@
+const navItems = [
+  { label: "HOME", href: "#home" },
+  { label: "ABOUT", href: "#about" },
+  { label: "EDUCATION", href: "#education" },
+  { label: "AWARDS", href: "#awards" },
+  { label: "STACK", href: "#stack" },
+  { label: "CONTACT", href: "#contact" },
+];
+
 export default function Navbar() {
-  const navItems = [
-    "HOME",
-    "ABOUT",
-    "PROJECTS",
-    "TECH",
-    "EXPERIENCE",
-    "CONTACT",
-  ];
-
   return (
-    <nav className="absolute left-1/2 top-6 z-30 -translate-x-1/2">
-      <div
-        className="flex items-center gap-1 rounded-full px-2 py-2 backdrop-blur-md"
-        style={{
-          background: "var(--surface)",
-          border: "1px solid var(--border)",
-          boxShadow: "0 0 30px var(--glow)",
-        }}
-      >
-        {navItems.map((item, index) => (
+    <header className="absolute left-0 top-0 z-50 w-full">
+      <nav className="mx-auto flex h-[84px] items-center justify-between border-b border-[var(--border)] px-[6.5%]">
+        
+        {/* Logo */}
+        <a
+          href="#"
+          className="text-[20px] font-black tracking-[-0.04em]"
+        >
+          KHANG
+        </a>
+
+        {/* Navigation */}
+        <div className="hidden items-center gap-9 md:flex">
+          {navItems.map((item, index) => (
+            <a
+              key={item.label}
+              href={item.href}
+              className={`group relative text-[12px] font-semibold tracking-[0.08em] transition-colors ${
+                index === 0
+                  ? "text-[var(--foreground)]"
+                  : "text-[var(--muted)]"
+              }`}
+            >
+              {item.label}
+
+              {index === 0 && (
+                <span className="absolute -bottom-[11px] left-0 h-px w-full bg-[var(--foreground)]" />
+              )}
+            </a>
+          ))}
+
+          {/* Resume */}
           <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            className="rounded-full px-5 py-3 text-sm font-medium tracking-[0.14em] transition-all duration-300"
-            style={{
-              color:
-                index === 0
-                  ? "var(--foreground)"
-                  : "var(--muted)",
-
-              background:
-                index === 0
-                  ? "var(--primary)"
-                  : "transparent",
-
-              boxShadow:
-                index === 0
-                  ? "0 0 20px var(--glow)"
-                  : "none",
-            }}
+            href="/resume.pdf"
+            className="ml-1 text-[12px] font-bold tracking-[0.08em] text-[var(--foreground)] underline underline-offset-[6px]"
           >
-            {item}
+            RESUME ↓
           </a>
-        ))}
-      </div>
-    </nav>
+        </div>
+
+      </nav>
+    </header>
   );
 }
