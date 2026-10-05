@@ -25,7 +25,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
           </span>
 
           {experience.logo ? (
-            <div className="mt-3 flex h-16 w-16 items-center justify-center overflow-hidden border border-[var(--border)] bg-white p-2.5">
+            <div className="mt-3 flex h-16 w-16 items-center justify-center overflow-hidden border border-[var(--border)] bg-white">
               <img
                 src={experience.logo}
                 alt={`${experience.company} logo`}

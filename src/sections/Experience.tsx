@@ -7,15 +7,17 @@ const experiences = [
     role: "Product Developer",
     type: "Production E-commerce Platform",
     period: "Aug 2026 — PRESENT",
+    logo: "/netviet-florist.jpg",
     description:
-      "Planned and independently developed a production e-commerce platform from the ground up for a local flower business.",
+      "Planned and developed a production e-commerce platform from the ground up for a local flower business.",
     technologies: [
       "NEXT.JS",
       "TYPESCRIPT",
       "MONGODB",
-      "MONGOOSE",
       "TAILWIND CSS",
       "VERCEL",
+      "CLOUDINARY",
+      "RESEND",
     ],
     bullets: [
     "Planned and developed the platform from the ground up, translating business requirements into application architecture, data models, API workflows, and production-ready features.",
