@@ -28,8 +28,8 @@ export default function Navbar() {
   return (
     <>
       {/* Navbar */}
-      <header className="absolute left-0 top-0 z-50 w-full">
-        <nav className="mx-auto flex h-[84px] items-center justify-between border-b border-[var(--border)] px-[6.5%]">
+      <header className="fixed left-0 top-0 z-50 w-full">
+        <nav className="mx-auto flex h-[84px] items-center justify-between border-b border-[var(--border)] px-[6.5%] bg-black/40 backdrop-blur-md">
           {/* Logo */}
           <a
             href="#home"

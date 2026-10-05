@@ -8,7 +8,7 @@ export default function Hero() {
         {/* LEFT */}
         <div className="relative z-10 w-[58%]">
           {/* Eyebrow */}
-          <p className="mb-8 text-[11px] font-semibold tracking-[0.18em] text-[var(--muted)]">
+          <p className="mb-8 text-sm font-semibold tracking-[0.18em] text-[var(--muted)]">
             Backend Engineer · HO CHI MINH CITY, VIETNAM
           </p>
 

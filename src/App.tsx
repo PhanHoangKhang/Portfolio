@@ -1,6 +1,7 @@
 import Scene from "./components/3d/Scene";
 import Navbar from "./components/ui/Navbar";
 import Hero from "./components/sections/Hero";
+import TechMarquee from "./components/ui/TechMarquee";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <Navbar />
 
       <Hero />
-
+      <TechMarquee />
     </main>
   );
 }
