@@ -9,14 +9,17 @@ import Footer from "./components/ui/Footer";
 
 function App() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-background">
+    <main
+      className="relative min-h-screen overflow-hidden"
+      style={{ background: "var(--background)" }}
+    >
       {/* 3D BACKGROUND */}
       <div className="fixed inset-0">
         <Scene />
       </div>
 
       {/* Dark overlay */}
-      <div className="pointer-events-none fixed inset-0 bg-black/35" />
+      <div className="pointer-events-none fixed inset-0 bg-black/20" />
 
       {/* CONTENT */}
       <Navbar />
