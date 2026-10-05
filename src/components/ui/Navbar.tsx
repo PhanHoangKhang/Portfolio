@@ -27,31 +27,27 @@ export default function Navbar() {
   };
 
   useEffect(() => {
-    const sections = navItems
-      .map((item) => document.querySelector(item.href))
-      .filter(Boolean);
+    const updateActiveSection = () => {
+      const activationPoint = window.innerHeight * 0.35;
+      const currentSection = navItems
+        .map((item) => document.querySelector<HTMLElement>(item.href))
+        .filter((section): section is HTMLElement => section !== null)
+        .filter(
+          (section) => section.getBoundingClientRect().top <= activationPoint,
+        )
+        .at(-1);
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visibleSections = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+      setActiveSection(currentSection?.id ?? "home");
+    };
 
-        if (visibleSections.length > 0) {
-          setActiveSection(visibleSections[0].target.id);
-        }
-      },
-      {
-        rootMargin: "-30% 0px -55% 0px",
-        threshold: [0.1, 0.25, 0.5],
-      },
-    );
+    updateActiveSection();
+    window.addEventListener("scroll", updateActiveSection, { passive: true });
+    window.addEventListener("resize", updateActiveSection);
 
-    sections.forEach((section) => {
-      if (section) observer.observe(section);
-    });
-
-    return () => observer.disconnect();
+    return () => {
+      window.removeEventListener("scroll", updateActiveSection);
+      window.removeEventListener("resize", updateActiveSection);
+    };
   }, []);
 
   return (
@@ -155,7 +151,7 @@ export default function Navbar() {
 
           {/* Links */}
           <div className="flex flex-col">
-            {navItems.map((item, index) => (
+            {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
