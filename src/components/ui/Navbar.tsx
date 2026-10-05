@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const navItems = [
   { label: "HOME", href: "#home" },
-  { label: "ABOUT", href: "#about" },
   { label: "EDUCATION", href: "#education" },
   { label: "AWARDS", href: "#awards" },
   { label: "STACK", href: "#stack" },
@@ -11,6 +10,7 @@ const navItems = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   // Prevent body from scrolling when mobile menu is open
   useEffect(() => {
@@ -24,6 +24,34 @@ export default function Navbar() {
   const closeMenu = () => {
     setMenuOpen(false);
   };
+
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.querySelector(item.href))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visibleSections.length > 0) {
+          setActiveSection(visibleSections[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-30% 0px -55% 0px",
+        threshold: [0.1, 0.25, 0.5],
+      },
+    );
+
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -41,25 +69,29 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center gap-9 md:flex">
-            {navItems.map((item, index) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className={`group relative text-[12px] font-semibold tracking-[0.08em] transition-colors hover:text-[var(--foreground)] ${
-                  index === 0
-                    ? "text-[var(--foreground)]"
-                    : "text-[var(--muted)]"
-                }`}
-              >
-                {item.label}
+            {navItems.map((item) => {
+              const isActive = activeSection === item.href.slice(1);
 
-                {index === 0 && (
-                  <span className="absolute -bottom-[11px] left-0 h-px w-full bg-[var(--foreground)]" />
-                )}
-              </a>
-            ))}
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  onClick={closeMenu}
+                  className={`group relative text-[12px] font-semibold tracking-[0.08em] transition-colors ${
+                    isActive
+                      ? "text-[var(--foreground)]"
+                      : "text-[var(--muted)]"
+                  }`}
+                >
+                  {item.label}
 
-            {/* Resume */}
+                  {isActive && (
+                    <span className="absolute -bottom-[11px] left-0 h-px w-full bg-[var(--foreground)]" />
+                  )}
+                </a>
+              );
+            })}
+
             <a
               href="/resume.pdf"
               className="ml-1 text-[12px] font-bold tracking-[0.08em] text-[var(--foreground)] underline underline-offset-[6px]"
@@ -116,7 +148,7 @@ export default function Navbar() {
           </button>
 
           {/* Small label */}
-          <p className="mb-8 text-[9px] font-semibold tracking-[0.2em] text-[var(--muted)]">
+          <p className="mb-8 text-xs font-semibold tracking-[0.2em] text-[var(--muted)]">
             NAVIGATION
           </p>
 
@@ -131,7 +163,7 @@ export default function Navbar() {
               >
                 <span
                   className={`text-[1.15rem] font-bold tracking-[-0.025em] transition-transform duration-300 group-hover:translate-x-1.5 ${
-                    index === 0
+                    activeSection === item.href.slice(1)
                       ? "text-[var(--foreground)]"
                       : "text-[var(--muted)]"
                   }`}
@@ -161,11 +193,11 @@ export default function Navbar() {
 
           {/* Bottom info */}
           <div className="mt-auto">
-            <p className="text-[9px] font-semibold tracking-[0.15em] text-[var(--muted)]">
-              BACKEND ENGINEER
+            <p className="text-xs font-semibold tracking-[0.15em] text-[var(--muted)]">
+              Phan Hoang Khang · Backend Engineer
             </p>
 
-            <p className="mt-1.5 text-[9px] tracking-[0.12em] text-[var(--muted)]">
+            <p className="mt-1.5 text-xs tracking-[0.12em] text-[var(--muted)]">
               HO CHI MINH CITY, VIETNAM
             </p>
           </div>
