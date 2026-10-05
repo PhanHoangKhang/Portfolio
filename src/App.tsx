@@ -2,6 +2,7 @@ import Scene from "./components/3d/Scene";
 import Navbar from "./components/ui/Navbar";
 import Hero from "./components/sections/Hero";
 import TechMarquee from "./components/ui/TechMarquee";
+import Education from "./components/sections/Education";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
 
       <Hero />
       <TechMarquee />
+      <Education />
     </main>
   );
 }
