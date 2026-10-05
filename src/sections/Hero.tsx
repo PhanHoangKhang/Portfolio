@@ -1,4 +1,4 @@
-import TypingText from "../ui/TypingText";
+import TypingText from "../components/ui/TypingText";
 
 export default function Hero() {
   return (
