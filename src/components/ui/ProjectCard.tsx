@@ -1,15 +1,4 @@
-type Project = {
-  number: string;
-  name: string;
-  type: string;
-  period: string;
-  role: string;
-  description: string;
-  technologies: string[];
-  github?: string;
-  image?: string;
-  bullets: string[];
-};
+import type { Project } from "../../types";
 
 type ProjectCardProps = {
   project: Project;

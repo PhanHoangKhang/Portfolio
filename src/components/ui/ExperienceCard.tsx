@@ -1,14 +1,4 @@
-type Experience = {
-  number: string;
-  company: string;
-  role: string;
-  type: string;
-  period: string;
-  logo?: string;
-  description: string;
-  technologies: string[];
-  bullets: string[];
-};
+import type { Experience } from "../../types";
 
 type ExperienceCardProps = {
   experience: Experience;

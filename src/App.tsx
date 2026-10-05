@@ -5,6 +5,7 @@ import TechMarquee from "./components/ui/TechMarquee";
 import Education from "./sections/Education";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Project";
+import Footer from "./components/ui/Footer";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <Education />
       <Experience />
       <Projects />
+      <Footer />
     </main>
   );
 }
