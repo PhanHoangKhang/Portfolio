@@ -20,12 +20,12 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
       {/* Header */}
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[80px_1fr_180px]">
         <div className="flex w-20 shrink-0 flex-col items-start">
-          <span className="text-[10px] font-semibold tracking-[0.15em] text-[var(--muted)]">
+          <span className="text-xs font-semibold tracking-[0.15em] text-[var(--muted)]">
             {experience.number}
           </span>
 
           {experience.logo ? (
-            <div className="mt-3 flex h-16 w-16 items-center justify-center overflow-hidden border border-[var(--border)] bg-white">
+            <div className="mt-3 flex h-25 w-25 items-center justify-center overflow-hidden border border-[var(--border)] bg-white">
               <img
                 src={experience.logo}
                 alt={`${experience.company} logo`}
@@ -69,7 +69,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[180px_1fr]">
         {/* Technologies */}
         <div>
-          <p className="mb-4 text-[9px] font-semibold tracking-[0.2em] text-[var(--muted)]">
+          <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-[var(--muted)]">
             AREA
           </p>
 
@@ -77,7 +77,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
             {experience.technologies.map((technology) => (
               <span
                 key={technology}
-                className="border border-[var(--border)] px-2.5 py-1.5 text-[9px] font-semibold tracking-[0.1em] text-[var(--muted-light)]"
+                className="border border-[var(--border)] px-2.5 py-1.5 text-xs font-semibold tracking-[0.1em] text-[var(--muted-light)]"
               >
                 {technology}
               </span>
@@ -87,7 +87,7 @@ export default function ExperienceCard({ experience }: ExperienceCardProps) {
 
         {/* Contributions */}
         <div>
-          <p className="mb-4 text-[9px] font-semibold tracking-[0.2em] text-[var(--muted)]">
+          <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-[var(--muted)]">
             CONTRIBUTIONS
           </p>
 

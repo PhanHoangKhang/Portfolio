@@ -3,9 +3,10 @@ type Project = {
   name: string;
   type: string;
   period: string;
+  role: string;
   description: string;
   technologies: string[];
-  github: string;
+  github?: string;
   image?: string;
   bullets: string[];
 };
@@ -16,59 +17,10 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="group border border-[var(--border)] bg-black/20 p-5 transition-all duration-500 hover:border-[var(--border-strong)] hover:bg-white/[0.025] sm:p-6">
-      {/* Header */}
-      <div className="flex items-start justify-between">
-        <span className="text-[10px] font-semibold tracking-[0.15em] text-[var(--muted)]">
-          {project.number}
-        </span>
-
-        <span className="text-[9px] font-semibold tracking-[0.15em] text-[var(--muted)]">
-          {project.period}
-        </span>
-      </div>
-
-      {/* Title */}
-      <div className="mt-8">
-        <p className="mb-2 text-[8px] font-semibold tracking-[0.2em] text-[var(--muted)]">
-          {project.type}
-        </p>
-
-        <h3 className="font-[var(--font-display)] text-[clamp(2rem,4vw,4rem)] font-black uppercase leading-[0.85] tracking-[-0.05em] text-[var(--foreground)]">
-          {project.name}
-        </h3>
-
-        <p className="mt-4 max-w-2xl text-xs leading-6 text-[var(--muted-light)]">
-          {project.description}
-        </p>
-      </div>
-
-      {/* Tech + Github */}
-      <div className="mt-6 flex flex-col gap-4 border-y border-[var(--border)] py-4 sm:flex-row sm:items-center sm:justify-between">
-        <div className="flex flex-wrap gap-x-4 gap-y-2">
-          {project.technologies.map((technology) => (
-            <span
-              key={technology}
-              className="text-[8px] font-semibold tracking-[0.1em] text-[var(--muted-light)]"
-            >
-              {technology}
-            </span>
-          ))}
-        </div>
-
-        <a
-          href={project.github}
-          target="_blank"
-          rel="noreferrer"
-          className="shrink-0 text-[9px] font-semibold tracking-[0.15em] text-[var(--foreground)] transition-colors hover:text-violet-300"
-        >
-          VIEW GITHUB ↗
-        </a>
-      </div>
-
-      {/* Preview */}
+    <article className="group flex h-full flex-col overflow-hidden border border-[var(--border)] bg-black/20">
+      {/* Project Preview */}
       {project.image && (
-        <div className="mt-6 aspect-[16/7] overflow-hidden bg-[var(--surface-light)]">
+        <div className="aspect-[16/9] overflow-hidden border-b border-[var(--border)] bg-[var(--surface-light)]">
           <img
             src={project.image}
             alt={`${project.name} project preview`}
@@ -77,30 +29,71 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
       )}
 
-      {/* Contributions */}
-      <div className="mt-7">
-        <div className="mb-4 flex items-center justify-between border-b border-[var(--border)] pb-3">
-          <p className="text-[8px] font-semibold tracking-[0.2em] text-[var(--muted)]">
-            CONTRIBUTIONS
-          </p>
+      {/* Content */}
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
+        {/* Number + Period */}
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-semibold tracking-[0.15em] text-[var(--muted)]">
+            {project.number}
+          </span>
 
-          <span className="text-[8px] tracking-[0.15em] text-[var(--muted)]">
-            {project.bullets.length.toString().padStart(2, "0")}
+          <span className="text-xs font-semibold tracking-[0.12em] text-[var(--muted)]">
+            {project.period}
           </span>
         </div>
 
-        <div className="space-y-3">
-          {project.bullets.map((bullet, index) => (
-            <div key={bullet} className="flex gap-3">
-              <span className="w-5 shrink-0 text-[8px] font-semibold tracking-[0.1em] text-violet-300">
-                0{index + 1}
-              </span>
+        {/* Project Name */}
+        <div className="mt-5">
+          <p className="mb-2 text-xs font-semibold tracking-[0.18em] text-[var(--muted)]">
+            {project.type}
+          </p>
 
-              <p className="text-xs leading-6 text-[var(--muted-light)]">
-                {bullet}
-              </p>
-            </div>
+          <h3 className="font-[var(--font-display)] text-[clamp(1.8rem,3vw,2.8rem)] font-black uppercase leading-[0.88] tracking-[-0.045em] text-[var(--foreground)]">
+            {project.name}
+          </h3>
+        </div>
+
+        {/* Stack */}
+        <p className="mt-4 text-xs font-semibold uppercase leading-relaxed tracking-[0.08em] text-[var(--muted-light)]">
+          {project.technologies.join(" · ")}
+        </p>
+
+        {/* Role */}
+        <p className="mt-2 text-xs tracking-[0.08em] text-[var(--muted)]">
+          {project.role}
+        </p>
+
+        {/* Description */}
+        <p className="mt-5 text-sm leading-6 text-[var(--muted-light)]">
+          {project.description}
+        </p>
+
+        {/* Divider */}
+        <div className="my-5 h-px bg-[var(--border)]" />
+
+        {/* Contributions */}
+        <ul className="flex-1 space-y-3">
+          {project.bullets.map((bullet) => (
+            <li
+              key={bullet}
+              className="flex gap-3 text-sm leading-6 text-[var(--muted-light)]"
+            >
+              <span className="shrink-0 text-[var(--muted)]">-</span>
+              <span>{bullet}</span>
+            </li>
           ))}
+        </ul>
+
+        {/* Github */}
+        <div className="mt-6">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex border border-[var(--border)] px-3 py-2 text-xs font-semibold tracking-[0.15em] text-[var(--muted-light)] transition-colors hover:border-[var(--border-strong)] hover:text-[var(--foreground)]"
+          >
+            GITHUB ↗
+          </a>
         </div>
       </div>
     </article>

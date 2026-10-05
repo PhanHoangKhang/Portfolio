@@ -6,16 +6,12 @@ const projects = [
     name: "FINRECRUIT",
     type: "Recruitment Management Platform",
     period: "2025 — PRESENT",
+    role: "Backend Engineer",
     description:
       "Internal recruitment platform developed for RMIT FinTech Club to streamline candidate evaluation and interview management.",
-    technologies: [
-      "NEXT.JS",
-      "TYPESCRIPT",
-      "MONGODB",
-      "REST API",
-      "RBAC",
-    ],
+    technologies: ["NEXT.JS", "TYPESCRIPT", "MONGODB", "REST API", "RBAC"],
     github: "#",
+    image: "/projects/finrecruit.jpg",
     bullets: [
       "Developed backend APIs for the Digital Interview Cockpit, handling candidate evaluation, interview questions, notes, and final decisions.",
       "Implemented dynamic question templates and candidate-specific ad-hoc questions, keeping custom questions isolated from department templates.",
@@ -23,13 +19,15 @@ const projects = [
       "Collaborated with the development team through Agile sprints, translating recruitment requirements into backend features and iterating based on team feedback.",
     ],
   },
+
   {
     number: "02",
     name: "MEDIBOOK",
     type: "Medical Appointment Booking Platform",
     period: "MAR 2026 — MAY 2026",
+    role: "Project Leader",
     description:
-      "Web-based medical appointment platform designed to help patients find doctors, book appointments, and manage schedules.",
+      "Web-based medical appointment platform for doctor discovery, appointment booking, and schedule management.",
     technologies: [
       "NEXT.JS",
       "TYPESCRIPT",
@@ -38,42 +36,41 @@ const projects = [
       "GOOGLE OAUTH",
     ],
     github: "#",
+    image: "/projects/medibook.png",
     bullets: [
       "Developed doctor search and appointment booking workflows with real-time slot filtering and server-side validation to reduce scheduling conflicts.",
-      "Built a doctor dashboard for managing availability and viewing appointment schedules and key booking metrics.",
+      "Built a doctor dashboard for managing availability, appointments, and key booking metrics.",
       "Implemented JWT authentication, RBAC, server-side input validation, and file-upload restrictions to address common OWASP Top 10 risks.",
-      "Led a 3-member team using Agile/Scrum, coordinating tasks and backlog items while supporting on-time delivery of project features.",
+      "Led a 3-member team through Agile/Scrum, coordinating tasks and backlog items to support on-time feature delivery.",
     ],
   },
+
   {
     number: "03",
     name: "FINAI",
-    type: "Financial News Analytics & Recommendation Platform",
+    type: "Financial News Analytics Platform",
     period: "JUL 2026 — AUG 2026",
+    role: "Technical Leader · Backend Engineer",
     description:
-      "Financial analytics platform combining market data, financial news, and AI-powered insights to help users research stocks more efficiently.",
-    technologies: [
-      "SPRING BOOT",
-      "PYTHON",
-      "FASTAPI",
-      "REACT",
-      "GEMINI AI",
-    ],
+      "Financial analytics platform combining market data, financial news, and AI-powered insights.",
+    technologies: ["SPRING BOOT", "FASTAPI", "REACT", "GEMINI AI"],
     github: "#",
+    image: "/projects/finai.png",
     bullets: [
-      "Led the technical development of the project, coordinating implementation decisions and aligning frontend, backend, and AI service integration.",
-      "Designed a service-based architecture with Spring Boot handling core application logic and FastAPI supporting financial data and AI-related services.",
-      "Built an interactive React dashboard with financial charts, stock search, inline financial term lookup, and personalized suggestions.",
-      "Collaborated with the team to analyze retail-investor pain points and translate research findings into technical features and product decisions.",
+      "Led technical development across frontend, backend, and AI service integration, coordinating implementation decisions within the team.",
+      "Designed a service-based architecture with Spring Boot for core application logic and FastAPI for financial data and AI-related services.",
+      "Developed backend integration flows for financial data and AI-powered analysis, connecting external services with the application.",
+      "Built an interactive React dashboard with financial charts, stock search, inline term lookup, and personalized suggestions.",
     ],
   },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative z-20 px-[6.5%] py-32">
+    <section id="projects" className="relative z-20 px-[6.5%] py-28">
       <div className="mx-auto max-w-[1600px]">
-        <div className="mb-16 flex items-end justify-between border-b border-[var(--border)] pb-5">
+        {/* Section header */}
+        <div className="mb-12 flex items-end justify-between border-b border-[var(--border)] pb-5">
           <h2 className="text-[11px] font-semibold tracking-[0.2em] text-[var(--muted)]">
             PROJECTS
           </h2>
@@ -83,7 +80,8 @@ export default function Projects() {
           </span>
         </div>
 
-        <div className="space-y-6">
+        {/* Project grid */}
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project) => (
             <ProjectCard key={project.number} project={project} />
           ))}
