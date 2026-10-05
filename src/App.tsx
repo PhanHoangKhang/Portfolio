@@ -3,6 +3,7 @@ import Navbar from "./components/ui/Navbar";
 import Hero from "./sections/Hero";
 import TechMarquee from "./components/ui/TechMarquee";
 import Education from "./sections/Education";
+import Experience from "./sections/Experience";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Hero />
       <TechMarquee />
       <Education />
+      <Experience />
     </main>
   );
 }
