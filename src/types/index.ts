@@ -22,3 +22,14 @@ export type Project = {
   image?: string;
   bullets: string[];
 };
+
+export type Activity = {
+  number: string;
+  organization: string;
+  role: string;
+  type: string;
+  period: string;
+  description: string;
+  image: string;
+  bullets: string[];
+};

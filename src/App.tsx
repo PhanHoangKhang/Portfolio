@@ -6,6 +6,7 @@ import Education from "./sections/Education";
 import Experience from "./sections/Experience";
 import Projects from "./sections/Project";
 import Footer from "./components/ui/Footer";
+import Activity from "./sections/Activity";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
       <Education />
       <Experience />
       <Projects />
+      <Activity />
       <Footer />
     </main>
   );
