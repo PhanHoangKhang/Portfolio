@@ -30,6 +30,6 @@ export type Activity = {
   type: string;
   period: string;
   description: string;
-  image: string;
+  images: string[];
   bullets: string[];
 };

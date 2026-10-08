@@ -9,7 +9,11 @@ const activities = [
     period: "FEB 2026 — MAY 2026",
     description:
       "Nationwide university competition focused on developing functional hardware and IoT solutions addressing real-world challenges and the UN Sustainable Development Goals.",
-    image: "/activities/neo-league.jpg",
+    images: [
+      "/activities/neo-league.jpg",
+      "/activities/program-team.jpg",
+      "/activities/neo-team-2.jpg",
+    ],
     bullets: [
       "Contributed to developing the official competition website and preparing round requirements, guidelines, schedules, and participant information.",
       "Collaborated with the program team to design logic-based challenges, technical questions, workshops, and activities supporting participants' technical and pitching skills.",
@@ -22,7 +26,6 @@ export default function Activity() {
   return (
     <section id="activities" className="relative z-20 px-[6.5%] py-28">
       <div className="mx-auto max-w-[1600px]">
-
         {/* Section Header */}
         <div className="mb-12 flex items-end justify-between border-b border-[var(--border)] pb-5">
           <h2 className="text-[11px] font-semibold tracking-[0.2em] text-[var(--muted)]">
@@ -36,10 +39,7 @@ export default function Activity() {
 
         <div className="space-y-5">
           {activities.map((activity) => (
-            <ActivityCard
-              key={activity.number}
-              activity={activity}
-            />
+            <ActivityCard key={activity.number} activity={activity} />
           ))}
         </div>
       </div>
