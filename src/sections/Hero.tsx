@@ -11,7 +11,7 @@ export default function Hero() {
         <div className="relative z-10 w-full md:w-[58%]">
           {/* Eyebrow */}
           <p className="mb-8 text-sm font-semibold tracking-[0.18em] text-[var(--muted)]">
-            Backend Engineer · HO CHI MINH CITY, VIETNAM
+            BACKEND ENGINEER · HO CHI MINH CITY, VIETNAM
           </p>
 
           {/* Name */}
