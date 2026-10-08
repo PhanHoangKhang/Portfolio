@@ -22,11 +22,11 @@ export default function TechMarquee() {
             key={`${tech}-${index}`}
             className="flex items-center"
           >
-            <span className="px-20 text-xs font-semibold tracking-[0.16em] text-[var(--muted)]">
+            <span className="px-20 text-xs font-semibold tracking-[0.16em] text-violet-300">
               {tech}
             </span>
 
-            <span className="text-xs text-[var(--primary-dark)]">
+            <span className="text-xs text-violet-500/70">
               /
             </span>
           </div>

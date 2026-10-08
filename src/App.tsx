@@ -7,6 +7,7 @@ import Experience from "./sections/Experience";
 import Projects from "./sections/Project";
 import Footer from "./components/ui/Footer";
 import Activity from "./sections/Activity";
+import Contact from "./sections/Contact";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
       <Experience />
       <Projects />
       <Activity />
+      <Contact />
       <Footer />
     </main>
   );
