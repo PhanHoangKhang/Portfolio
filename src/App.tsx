@@ -8,6 +8,7 @@ import Projects from "./sections/Project";
 import Footer from "./components/ui/Footer";
 import Activity from "./sections/Activity";
 import Contact from "./sections/Contact";
+import Awards from "./sections/Awards";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
       <TechMarquee />
       <Education />
       <Experience />
+      <Awards />
       <Projects />
       <Activity />
       <Contact />
