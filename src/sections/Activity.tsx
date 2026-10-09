@@ -12,7 +12,7 @@ const activities = [
     images: [
       "/activities/neo-league.jpg",
       "/activities/program-team.jpg",
-      "/activities/neo-team-2.jpg",
+      "/activities/organizer.png",
     ],
     bullets: [
       "Contributed to developing the official competition website and preparing round requirements, guidelines, schedules, and participant information.",
