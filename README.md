@@ -1,2 +1,2 @@
-# Welcome to my portfolio 😎
+# MY PORTFOLIO 🔥
 ![alt text](image.png)
